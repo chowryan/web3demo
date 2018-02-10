@@ -16,7 +16,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['react', 'es2017'],
+            presets: ['react', 'env'],
           },
         },
       },
