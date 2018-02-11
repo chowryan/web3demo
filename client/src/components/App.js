@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
-// import Header from './Header';
-// import SignupForm from './SignupForm';
-// import Footer from './Footer';
+import { connect } from 'react-redux';
+import Web3Wrapper from './Web3Wrapper';
 
 class App extends Component {
   constructor(props) {
@@ -15,10 +13,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        Hello World!
+        { JSON.stringify(!this.props.on) }
       </div>
     );
   }
 }
 
-export default App;
+export default Web3Wrapper(connect(({ on }) => ({ on }))(App));
+
