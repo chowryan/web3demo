@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Paper from 'material-ui/Paper/Paper'
 import Typography from 'material-ui/Typography/Typography'
 
-class Connection extends Component {
+class EventsLogs extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,4 +25,4 @@ const mapStateToProps = ({ provider, version, nodeStatus }) => ({
   nodeStatus,
 })
 
-export default connect(mapStateToProps)(Connection)
+export default connect(mapStateToProps)(EventsLogs)

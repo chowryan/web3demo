@@ -18,6 +18,18 @@ class App extends Component {
     dispatch(getWeb3())
   }
 
+  renderWeb3Content() {
+    return (
+      <div>
+        <Connection />
+        <Accounts />
+        <Transactions />
+        <Contracts />
+        <EventsLogs />
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
@@ -28,11 +40,7 @@ class App extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Connection />
-        <Accounts />
-        <Transactions />
-        <Contracts />
-        <EventsLogs />
+        { window.web3 && this.renderWeb3Content() }
       </div>
     )
   }
