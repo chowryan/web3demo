@@ -6,10 +6,11 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'babel-polyfill',
-    // 'react-hot-loader/patch',
-    // 'webpack-hot-middleware/client?http://localhost:1337',
-    // 'webpack/hot/only-dev-server',
-    './client/src/app.js'],
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:1337',
+    'webpack/hot/only-dev-server',
+    './client/src/app.js',
+  ],
   output: {
     path: path.join(__dirname, 'public/dist'),
     filename: 'bundle.js',
@@ -21,9 +22,6 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['react', ['env', { modules: false }], 'stage-2'],
-          },
         },
       },
     ],
