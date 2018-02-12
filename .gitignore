@@ -1,6 +1,6 @@
 .DS_Store
 node_modules/
+data/
 /public/dist
-/data
 yarn.lock
 /db
