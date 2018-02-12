@@ -1,6 +1,6 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -35,4 +35,4 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
-};
+}

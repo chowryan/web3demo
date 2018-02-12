@@ -1,23 +1,42 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Web3Wrapper from './Web3Wrapper';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import Typography from 'material-ui/Typography'
+
+import { getWeb3 } from '../redux/main/thunks'
+
+import Connection from './Connection'
+import Accounts from './Accounts'
+import Transactions from './Transactions'
+import Contracts from './Contracts'
+import EventsLogs from './EventsLogs'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: 'Hello World!',
-    };
+  async componentDidMount() {
+    const { dispatch } = this.props
+    dispatch(getWeb3())
   }
 
   render() {
     return (
       <div>
-        { JSON.stringify(!this.props.on) }
+        <AppBar position="sticky" color="default">
+          <Toolbar>
+            <Typography variant="title">
+              Web3 Demo
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Connection />
+        <Accounts />
+        <Transactions />
+        <Contracts />
+        <EventsLogs />
       </div>
-    );
+    )
   }
 }
 
-export default Web3Wrapper(connect(({ on }) => ({ on }))(App));
+export default connect()(App)
 

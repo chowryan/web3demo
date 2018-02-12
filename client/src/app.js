@@ -1,29 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { AppContainer } from 'react-hot-loader';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-import initStore from './redux/store';
-import App from './components/App';
-import { defaultMainState } from './redux/main/reducer';
+import initStore from './redux/store'
+import { defaultMainState } from './redux/main/reducer'
 
-const store = initStore(defaultMainState);
+import App from './components/App'
+
+const store = initStore(defaultMainState)
 
 const render = (Component) => {
   ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
-        <Component />
-      </Provider>
-    </AppContainer>,
+    <Provider store={store}>
+      <Component />
+    </Provider>,
     document.getElementById('app'),
-  );
-};
+  )
+}
 
-render(App);
+render(App)
 
 // if (module.hot) {
 //   module.hot.accept('./components/App', () => {
-//     render(App);
-//   });
+//     render(App)
+//   })
 // }
